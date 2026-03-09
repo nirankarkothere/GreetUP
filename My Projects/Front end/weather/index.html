@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkyView · weather interface</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="weather-app">
+    <!-- header -->
+    <div class="app-header">
+      <h1>
+        <i class="fas fa-cloud-sun"></i>
+        skyview
+      </h1>
+      
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <div class="units-toggle">
+          <button class="unit-btn active">°C</button>
+          <button class="unit-btn">°F</button>
+        </div>
+        
+        <div class="location-search">
+          <input type="text" placeholder="search city..." value="Mumbai">
+          <button><i class="fas fa-search"></i> search</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- main weather card -->
+    <div class="weather-main">
+      <div class="weather-grid">
+        <div class="weather-info">
+          <div class="location">
+            <i class="fas fa-map-pin"></i>
+            <h2>Pune</h2>
+          </div>
+          <div class="date-time">
+            <i class="far fa-calendar"></i> monday, mar 10 · 2:30 PM
+          </div>
+          
+          <div class="temperature-main">
+            <span class="temp-value">18°</span>
+            <i class="fas fa-cloud-sun weather-icon-main"></i>
+          </div>
+          <div class="weather-desc">partly cloudy</div>
+          
+          <div class="weather-stats">
+            <div class="stat-item">
+              <i class="fas fa-droplet"></i>
+              <div class="stat-label">humidity</div>
+              <div class="stat-value">65%</div>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-wind"></i>
+              <div class="stat-label">wind</div>
+              <div class="stat-value">12 km/h</div>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-compress-alt"></i>
+              <div class="stat-label">pressure</div>
+              <div class="stat-value">1012 hPa</div>
+            </div>
+          </div>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <!-- air quality -->
+          <div style="background: rgba(255,255,255,0.05); border-radius: 24px; padding: 1.2rem;">
+            <div style="display: flex; justify-content: space-between; color: white; margin-bottom: 0.5rem;">
+              <span><i class="fas fa-wind" style="color: #3b82f6;"></i> air quality</span>
+              <span style="color: #10b981;">moderate</span>
+            </div>
+            <div class="aqi-indicator">
+              <span style="color: rgba(255,255,255,0.5); font-size: 0.8rem;">0</span>
+              <div class="aqi-bar"><div class="aqi-fill" style="width: 65%;"></div></div>
+              <span style="color: rgba(255,255,255,0.5); font-size: 0.8rem;">100</span>
+            </div>
+          </div>
+          
+          <!-- sun times -->
+          <div style="display: flex; gap: 1rem;">
+            <div style="flex: 1; background: rgba(255,255,255,0.05); border-radius: 24px; padding: 1.2rem;">
+              <i class="fas fa-sun" style="color: #fbbf24; font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+              <div style="color: rgba(255,255,255,0.7); font-size: 0.8rem;">sunrise</div>
+              <div style="color: white; font-size: 1.3rem; font-weight: 600;">6:42 AM</div>
+            </div>
+            <div style="flex: 1; background: rgba(255,255,255,0.05); border-radius: 24px; padding: 1.2rem;">
+              <i class="fas fa-moon" style="color: #a78bfa; font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+              <div style="color: rgba(255,255,255,0.7); font-size: 0.8rem;">sunset</div>
+              <div style="color: white; font-size: 1.3rem; font-weight: 600;">7:38 PM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- hourly forecast -->
+    <div>
+      <div class="section-title">
+        <i class="fas fa-clock"></i>
+        <span>hourly forecast</span>
+      </div>
+      <div class="hourly-grid">
+        <div class="hour-card">
+          <div class="hour-time">12 PM</div>
+          <i class="fas fa-cloud-sun hour-icon"></i>
+          <div class="hour-temp">18°</div>
+        </div>
+        <div class="hour-card">
+          <div class="hour-time">1 PM</div>
+          <i class="fas fa-sun hour-icon"></i>
+          <div class="hour-temp">19°</div>
+        </div>
+        <div class="hour-card">
+          <div class="hour-time">2 PM</div>
+          <i class="fas fa-sun hour-icon"></i>
+          <div class="hour-temp">20°</div>
+        </div>
+        <div class="hour-card">
+          <div class="hour-time">3 PM</div>
+          <i class="fas fa-cloud-sun hour-icon"></i>
+          <div class="hour-temp">19°</div>
+        </div>
+        <div class="hour-card">
+          <div class="hour-time">4 PM</div>
+          <i class="fas fa-cloud hour-icon"></i>
+          <div class="hour-temp">18°</div>
+        </div>
+        <div class="hour-card">
+          <div class="hour-time">5 PM</div>
+          <i class="fas fa-cloud-rain hour-icon"></i>
+          <div class="hour-temp">17°</div>
+        </div>
+        <div class="hour-card">
+          <div class="hour-time">6 PM</div>
+          <i class="fas fa-cloud-rain hour-icon"></i>
+          <div class="hour-temp">16°</div>
+        </div>
+        <div class="hour-card">
+          <div class="hour-time">7 PM</div>
+          <i class="fas fa-cloud-moon hour-icon"></i>
+          <div class="hour-temp">15°</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5-day forecast -->
+    <div>
+      <div class="section-title">
+        <i class="fas fa-calendar-week"></i>
+        <span>5-day forecast</span>
+      </div>
+      <div class="forecast-grid">
+        <div class="day-card">
+          <div class="day-name">tuesday</div>
+          <div class="day-date">mar 11</div>
+          <i class="fas fa-cloud-sun day-icon"></i>
+          <div class="day-temp">
+            <span class="temp-high">19°</span>
+            <span class="temp-low">12°</span>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">wednesday</div>
+          <div class="day-date">mar 12</div>
+          <i class="fas fa-sun day-icon"></i>
+          <div class="day-temp">
+            <span class="temp-high">22°</span>
+            <span class="temp-low">14°</span>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">thursday</div>
+          <div class="day-date">mar 13</div>
+          <i class="fas fa-cloud-rain day-icon"></i>
+          <div class="day-temp">
+            <span class="temp-high">17°</span>
+            <span class="temp-low">11°</span>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">friday</div>
+          <div class="day-date">mar 14</div>
+          <i class="fas fa-cloud-sun day-icon"></i>
+          <div class="day-temp">
+            <span class="temp-high">18°</span>
+            <span class="temp-low">12°</span>
+          </div>
+        </div>
+        <div class="day-card">
+          <div class="day-name">saturday</div>
+          <div class="day-date">mar 15</div>
+          <i class="fas fa-sun day-icon"></i>
+          <div class="day-temp">
+            <span class="temp-high">21°</span>
+            <span class="temp-low">13°</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- additional info -->
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-icon"><i class="fas fa-temperature-high"></i></div>
+        <div class="info-content">
+          <h4>feels like</h4>
+          <p>17°</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><i class="fas fa-droplet"></i></div>
+        <div class="info-content">
+          <h4>humidity</h4>
+          <p>65%</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><i class="fas fa-wind"></i></div>
+        <div class="info-content">
+          <h4>wind speed</h4>
+          <p>12 km/h</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><i class="fas fa-eye"></i></div>
+        <div class="info-content">
+          <h4>visibility</h4>
+          <p>10 km</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><i class="fas fa-compress-alt"></i></div>
+        <div class="info-content">
+          <h4>pressure</h4>
+          <p>1012 hPa</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><i class="fas fa-sun"></i></div>
+        <div class="info-content">
+          <h4>uv index</h4>
+          <p>moderate</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><i class="fas fa-cloud-rain"></i></div>
+        <div class="info-content">
+          <h4>precipitation</h4>
+          <p>10%</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><i class="fas fa-moon"></i></div>
+        <div class="info-content">
+          <h4>moon phase</h4>
+          <p>waxing</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- favorite cities -->
+    <div class="cities-section">
+      <div class="section-title">
+        <i class="fas fa-star"></i>
+        <span>favorite cities</span>
+      </div>
+      <div class="cities-grid">
+        <div class="city-card">
+          <div class="city-info">
+            <h4>new york</h4>
+            <p><i class="fas fa-cloud"></i> cloudy</p>
+          </div>
+          <div class="city-temp">14°</div>
+        </div>
+        <div class="city-card">
+          <div class="city-info">
+            <h4>london</h4>
+            <p><i class="fas fa-cloud-rain"></i> light rain</p>
+          </div>
+          <div class="city-temp">11°</div>
+        </div>
+        <div class="city-card">
+          <div class="city-info">
+            <h4>tokyo</h4>
+            <p><i class="fas fa-sun"></i> clear</p>
+          </div>
+          <div class="city-temp">22°</div>
+        </div>
+        <div class="city-card">
+          <div class="city-info">
+            <h4>sydney</h4>
+            <p><i class="fas fa-cloud-sun"></i> partly cloudy</p>
+          </div>
+          <div class="city-temp">25°</div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

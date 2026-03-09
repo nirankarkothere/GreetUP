@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Cards Pro · advanced showcase</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>
+      <i class="fas fa-cube"></i>
+      product cards pro
+    </h1>
+    
+    <div class="subhead">
+      <span>advanced e-commerce components · fully interactive</span>
+      <div class="view-toggle">
+        <button class="view-btn active" data-grid="4"><i class="fas fa-th"></i></button>
+        <button class="view-btn" data-grid="3"><i class="fas fa-th-large"></i></button>
+        <button class="view-btn" data-grid="2"><i class="fas fa-list"></i></button>
+      </div>
+    </div>
+
+    <!-- filter bar -->
+    <div class="filter-bar">
+      <div class="filter-group">
+        <button class="filter-btn active">all products</button>
+        <button class="filter-btn">electronics</button>
+        <button class="filter-btn">fashion</button>
+        <button class="filter-btn">home</button>
+        <button class="filter-btn">sale</button>
+      </div>
+      <select class="sort-select">
+        <option>featured</option>
+        <option>price: low to high</option>
+        <option>price: high to low</option>
+        <option>newest</option>
+        <option>best selling</option>
+      </select>
+    </div>
+
+    <!-- main product grid -->
+    <div class="product-grid grid-4" id="productGrid">
+      <!-- card 1 - with all features -->
+      <div class="product-card" data-category="electronics">
+        <div class="product-badge badge-new">new arrival</div>
+        <div class="wishlist-btn"><i class="far fa-heart"></i></div>
+        <div class="image-container">
+          <div class="product-image img-1"></div>
+          <div class="quick-view">
+            <button class="quick-view-btn" onclick="showQuickView(1)"><i class="fas fa-eye"></i> quick view</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">electronics</div>
+          <h3 class="product-title">studio wireless pro</h3>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-count">(128)</span>
+          </div>
+          <p class="product-description">Premium noise-cancelling headphones with 30h battery and spatial audio.</p>
+          <div class="product-price-row">
+            <div class="price-container">
+              <span class="current-price">$299</span>
+              <span class="old-price">$349</span>
+              <span class="discount-badge">-14%</span>
+            </div>
+            <div class="color-selector">
+              <span class="color-option black" data-color="black"></span>
+              <span class="color-option blue" data-color="blue"></span>
+              <span class="color-option gray" data-color="gray"></span>
+            </div>
+          </div>
+          <div class="size-selector">
+            <span class="size-option" data-size="s">S</span>
+            <span class="size-option selected" data-size="m">M</span>
+            <span class="size-option" data-size="l">L</span>
+            <span class="size-option" data-size="xl">XL</span>
+          </div>
+          <div class="stock-indicator">
+            <span class="in-stock"><i class="fas fa-circle"></i> in stock</span>
+            <div class="stock-bar"><div class="stock-fill" style="width: 75%"></div></div>
+          </div>
+          <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> add to cart</button>
+          <div class="delivery-info">
+            <i class="fas fa-truck"></i>
+            <span>free delivery · arrives by mar 15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- card 2 - sale -->
+      <div class="product-card" data-category="electronics">
+        <div class="product-badge badge-sale">-20%</div>
+        <div class="wishlist-btn"><i class="far fa-heart"></i></div>
+        <div class="image-container">
+          <div class="product-image img-2"></div>
+          <div class="quick-view">
+            <button class="quick-view-btn"><i class="fas fa-eye"></i> quick view</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">wearables</div>
+          <h3 class="product-title">smart watch series 5</h3>
+          <div class="product-rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-count">(89)</span>
+          </div>
+          <p class="product-description">Fitness tracker with heart rate monitor, GPS, and 5-day battery.</p>
+          <div class="product-price-row">
+            <div class="price-container">
+              <span class="current-price">$159</span>
+              <span class="old-price">$199</span>
+            </div>
+            <div class="color-selector">
+              <span class="color-option black"></span>
+              <span class="color-option white"></span>
+            </div>
+          </div>
+          <div class="stock-indicator">
+            <span class="low-stock"><i class="fas fa-exclamation-circle"></i> only 3 left</span>
+            <div class="stock-bar"><div class="stock-fill" style="width: 25%; background: #f59e0b;"></div></div>
+          </div>
+          <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> add to cart</button>
+        </div>
+      </div>
+
+      <!-- card 3 - featured / best seller -->
+      <div class="product-card" data-category="electronics">
+        <div class="featured-badge">⭐ best seller</div>
+        <div class="wishlist-btn active"><i class="fas fa-heart"></i></div>
+        <div class="image-container">
+          <div class="product-image img-3"></div>
+          <div class="quick-view">
+            <button class="quick-view-btn"><i class="fas fa-eye"></i> quick view</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">audio</div>
+          <h3 class="product-title">portable bluetooth speaker</h3>
+          <div class="product-rating">
+            <span class="stars">★★★★★</span>
+            <span class="rating-count">(256)</span>
+          </div>
+          <p class="product-description">Waterproof, 20h playtime, with powerful bass and stereo pairing.</p>
+          <div class="product-price-row">
+            <span class="current-price">$79</span>
+            <div class="color-selector">
+              <span class="color-option black"></span>
+              <span class="color-option red"></span>
+              <span class="color-option blue"></span>
+            </div>
+          </div>
+          <div class="stock-indicator">
+            <span class="in-stock"><i class="fas fa-circle"></i> in stock</span>
+          </div>
+          <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> add to cart</button>
+        </div>
+      </div>
+
+      <!-- card 4 - limited edition -->
+      <div class="product-card" data-category="electronics">
+        <div class="product-badge badge-limited">limited</div>
+        <div class="wishlist-btn"><i class="far fa-heart"></i></div>
+        <div class="image-container">
+          <div class="product-image img-4"></div>
+          <div class="quick-view">
+            <button class="quick-view-btn"><i class="fas fa-eye"></i> quick view</button>
+          </div>
+        </div>
+        <div class="product-info">
+          <div class="product-category">photography</div>
+          <h3 class="product-title">vlog camera kit</h3>
+          <div class="product-rating">
+            <span class="stars">★★★★☆</span>
+            <span class="rating-count">(42)</span>
+          </div>
+          <p class="product-description">4K camera with flip screen, vlog kit includes tripod and mic.</p>
+          <div class="product-price-row">
+            <span class="current-price">$499</span>
+          </div>
+          <div class="quantity-selector">
+            <button class="qty-btn" onclick="adjustQty(this, -1)">-</button>
+            <input type="text" class="qty-input" value="1" readonly>
+            <button class="qty-btn" onclick="adjustQty(this, 1)">+</button>
+          </div>
+          <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> pre-order</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- featured section - horizontal scroll -->
+    <h2 class="section-title"><i class="fas fa-star"></i> you may also like</h2>
+    <div class="scroll-row">
+      <div class="scroll-card">
+        <div class="product-card">
+          <div class="image-container" style="height: 150px;">
+            <div class="product-image img-5"></div>
+          </div>
+          <div class="product-info" style="padding: 1rem;">
+            <h3 class="product-title" style="font-size: 1rem;">wireless mouse</h3>
+            <div class="product-price-row" style="margin-bottom: 0.5rem;">
+              <span class="current-price" style="font-size: 1.2rem;">$29</span>
+            </div>
+            <button class="add-to-cart" style="padding: 8px;">buy now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-card">
+        <div class="product-card">
+          <div class="image-container" style="height: 150px;">
+            <div class="product-image img-6"></div>
+          </div>
+          <div class="product-info" style="padding: 1rem;">
+            <h3 class="product-title" style="font-size: 1rem;">usb-c hub</h3>
+            <div class="product-price-row" style="margin-bottom: 0.5rem;">
+              <span class="current-price" style="font-size: 1.2rem;">$39</span>
+            </div>
+            <button class="add-to-cart" style="padding: 8px;">buy now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-card">
+        <div class="product-card">
+          <div class="image-container" style="height: 150px;">
+            <div class="product-image img-7"></div>
+          </div>
+          <div class="product-info" style="padding: 1rem;">
+            <h3 class="product-title" style="font-size: 1rem;">power bank</h3>
+            <div class="product-price-row" style="margin-bottom: 0.5rem;">
+              <span class="current-price" style="font-size: 1.2rem;">$49</span>
+            </div>
+            <button class="add-to-cart" style="padding: 8px;">buy now</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-card">
+        <div class="product-card">
+          <div class="image-container" style="height: 150px;">
+            <div class="product-image img-8"></div>
+          </div>
+          <div class="product-info" style="padding: 1rem;">
+            <h3 class="product-title" style="font-size: 1rem;">sd card 128gb</h3>
+            <div class="product-price-row" style="margin-bottom: 0.5rem;">
+              <span class="current-price" style="font-size: 1.2rem;">$24</span>
+            </div>
+            <button class="add-to-cart" style="padding: 8px;">buy now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- quick view modal -->
+    <div class="modal-overlay" id="quickViewModal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+        <h2 style="margin-bottom: 1rem;">quick view</h2>
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+          <div style="width: 200px; height: 200px; background: linear-gradient(135deg, #667eea, #764ba2); border-radius: 20px;"></div>
+          <div>
+            <h3>studio wireless pro</h3>
+            <p class="product-rating">★★★★★ (128 reviews)</p>
+            <p class="current-price" style="font-size: 2rem;">$299</p>
+            <button class="add-to-cart" style="margin-top: 1rem;">add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <i class="fas fa-boxes"></i> 8 premium cards · interactive demos · hover to explore
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

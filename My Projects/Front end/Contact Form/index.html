@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConnectFlow · smart contact form</title>
+  <!-- Font Awesome 6 for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h1>
+      <i class="fas fa-paper-plane"></i> 
+      let's connect
+    </h1>
+    <div class="subhead">
+      have a question or want to work together? drop me a message
+    </div>
+
+    <div class="contact-grid">
+      <!-- left side - contact info -->
+      <div class="info-section">
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h3>email</h3>
+          <p>hello@connectflow.io</p>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem;">response within 24h</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>studio</h3>
+          <p>san francisco, ca</p>
+          <p style="margin-top: 0.5rem;">available for remote work worldwide</p>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3>office hours</h3>
+          <p>mon-fri: 9am - 6pm pst</p>
+          <p style="margin-top: 0.5rem;">weekend: closed</p>
+        </div>
+
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+        </div>
+      </div>
+
+      <!-- right side - form -->
+      <div class="form-section">
+        <!-- success message (hidden by default) -->
+        <div id="successMessage" class="success-message" style="display: none;">
+          <i class="fas fa-check-circle"></i>
+          <h3 style="margin-bottom: 0.5rem;">message sent!</h3>
+          <p style="color: #a7f3d0;">thanks for reaching out. i'll get back to you soon.</p>
+        </div>
+
+        <!-- main form -->
+        <form id="contactForm" novalidate>
+          <!-- name field -->
+          <div class="form-group">
+            <label class="form-label" for="name">
+              <i class="fas fa-user"></i> full name <span class="required"></span>
+            </label>
+            <div class="input-wrapper">
+              <i class="fas fa-user input-icon"></i>
+              <input type="text" class="form-control" id="name" placeholder="Enter your name" autocomplete="off">
+            </div>
+            <div id="nameError" class="validation-message"></div>
+          </div>
+
+          <!-- email field -->
+          <div class="form-group">
+            <label class="form-label" for="email">
+              <i class="fas fa-envelope"></i> email address <span class="required"></span>
+            </label>
+            <div class="input-wrapper">
+              <i class="fas fa-envelope input-icon"></i>
+              <input type="email" class="form-control" id="email" placeholder="Enter your email" autocomplete="off">
+            </div>
+            <div id="emailError" class="validation-message"></div>
+          </div>
+
+          <!-- message field -->
+          <div class="form-group">
+            <label class="form-label" for="message">
+              <i class="fas fa-comment"></i> message <span class="required"></span>
+            </label>
+            <div class="input-wrapper">
+              <i class="fas fa-comment input-icon"></i>
+              <textarea class="form-control" id="message" placeholder="your message here..." rows="5"></textarea>
+            </div>
+            <div class="char-counter" id="charCounter">0/500 characters</div>
+            <div id="messageError" class="validation-message"></div>
+          </div>
+
+          <!-- submit button -->
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span id="btnText">send message</span>
+            <i class="fas fa-arrow-right" id="btnIcon"></i>
+          </button>
+
+          <!-- form footer -->
+          <div class="form-footer">
+            <span><i class="fas fa-lock" style="color: #3b82f6;"></i> your data is secure</span>
+            <button type="button" class="reset-btn" id="resetBtn">
+              <i class="fas fa-undo-alt"></i> clear all
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

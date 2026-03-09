@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vijaya Khandekar · personal portfolio</title>
+  <!-- Font Awesome 6 for icons (skills/projects) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Additional inline style to ensure avatar image displays properly */
+    .hero-avatar img {
+      width: 100%;
+      max-width: 280px;
+      height: auto;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 20px 30px -10px rgba(59,130,246,0.3);
+    }
+    /* If you want a fallback in case image is missing, you can keep icon styling */
+    .avatar-fallback {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo"><a href="#">V<span>.</span>Khandekar</a></div>
+      <ul class="nav-links">
+        <li><a href="#bio">Bio</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- main container -->
+  <main>
+    <!-- BIOGRAPHY + hero section (bio prominent) -->
+    <section id="bio" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1>Vijaya <span class="hero-highlight">Khandekar</span></h1>
+          <div class="hero-sub">building tools & telling stories with code</div>
+          <!-- biography summary (featured) -->
+          <div class="bio-text">
+            <i class="fas fa-quote-left" style="color:#3b82f6; opacity:0.7; margin-right:6px;"></i>
+            I’m a developer & designer based in Seattle, passionate about crafting interfaces that feel alive. 
+            Currently exploring web3 and creative coding. Previously @Stack, @DesignLab.
+          </div>
+          <div class="btn-group">
+            <a href="#projects" class="btn btn-primary">see my work</a>
+            <a href="#contact" class="btn btn-outline"><i class="far fa-comment"></i> let's talk</a>
+          </div>
+        </div>
+        <div class="hero-avatar">
+          <!-- IMAGE IS NOW PROPERLY SET HERE -->
+          <img src="image.png" alt="Vijaya Khandekar profile picture" onerror="this.style.display='none'; document.querySelector('.avatar-fallback').style.display='block';">
+          <div class="avatar-fallback">
+            <i class="fas fa-user-circle" style="font-size: 12rem; color: #3b82f6;"></i>
+          </div>
+          <!-- simple avatar illustration, personal touch -->
+        </div>
+      </div>
+    </section>
+
+    <!-- expanded biography (additional details) -->
+    <div class="container">
+      <div class="bio-expanded">
+        <h3><i class="fas fa-feather" style="color:#3b82f6; margin-right:12px;"></i> longer bio</h3>
+        <p>I grew up between Taipei and Vancouver — now based in the pacific northwest. 
+          I love solving problems with equal parts logic and empathy. 
+          Over the last 6 years I’ve built full‑stack applications, led dev workshops, and contributed to open‑source design systems. 
+          When I’m not at the keyboard I’m probably hiking, brewing coffee, or doodling.</p>
+        <ul class="highlight-list">
+          <li><i class="fas fa-map-pin" style="color:#2563eb;"></i> Pune, Maharashtra</li>
+          <li><i class="fas fa-briefcase"></i> UI Designer</li>
+          <li><i class="fas fa-award"></i> Presentation winner </li>
+          <li><i class="fas fa-heart"></i> New Skills Implementation</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- SKILLS section -->
+    <section id="skills" class="container">
+      <h2 class="section-title">⚒️ technical skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fab fa-js skill-icon"></i>
+          <h3>JavaScript/TS</h3>
+          <span class="skill-level">advanced</span>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-react skill-icon"></i>
+          <h3>React & Next</h3>
+          <span class="skill-level">advanced</span>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-python skill-icon"></i>
+          <h3>Python</h3>
+          <span class="skill-level">intermediate</span>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-mobile-alt skill-icon"></i>
+          <h3>UI Design</h3>
+          <span class="skill-level">advance</span>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-database skill-icon"></i>
+          <h3>PostgreSQL</h3>
+          <span class="skill-level">comfortable</span>
+        </div>
+        <div class="skill-card">
+          <i class="fab fa-figma skill-icon"></i>
+          <h3>Figma</h3>
+          <span class="skill-level">daily driver</span>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-cloud skill-icon"></i>
+          <h3>AWS</h3>
+          <span class="skill-level">learning</span>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-code-branch skill-icon"></i>
+          <h3>Git & CI</h3>
+          <span class="skill-level">advanced</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS section (project links) -->
+    <section id="projects" class="container">
+      <h2 class="section-title">📌 featured projects</h2>
+      <div class="projects-grid">
+        <!-- project 1 with direct link (simulated) -->
+        <div class="project-card">
+          <i class="fas fa-cube project-icon"></i>
+          <h3>Voxelize</h3>
+          <p>Browser-based 3D editor for lightweight voxel scenes. Built with Three.js and React.</p>
+          <a href="#" class="project-link" target="_blank" rel="noopener">live demo <i class="fas fa-arrow-right"></i></a>
+          <!-- '#' as placeholder, but it's a project link -->
+        </div>
+        <div class="project-card">
+          <i class="fas fa-chart-line project-icon"></i>
+          <h3>Bloom metrics</h3>
+          <p>Open-source dashboard for indie makers – track traffic, goals, and get insights.</p>
+          <a href="#" class="project-link" target="_blank" rel="noopener">github repo <i class="fab fa-github"></i> <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="project-card">
+          <i class="fas fa-paint-brush project-icon"></i>
+          <h3>design system</h3>
+          <p>Adaptable component library and tokens used by 20+ internal products.</p>
+          <a href="#" class="project-link" target="_blank" rel="noopener">storybook <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="project-card">
+          <i class="fas fa-robot project-icon"></i>
+          <h3>DocuMind AI</h3>
+          <p>Experimental NLP tool that summarizes research papers (private beta).</p>
+          <a href="#" class="project-link" target="_blank" rel="noopener">waiting list <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <!-- additional external link line (all project links are visible) -->
+      <p style="text-align:center; margin-top:1rem;">
+        <i class="fas fa-link" style="color:#3b82f6;"></i> 
+        <!-- each card includes a live project link — click to explore (prototype links open same window, but you can replace "#" with actual URLs) -->
+      </p>
+    </section>
+
+    <!-- contact / footer area (also acts as contact section) -->
+    <section id="contact" class="container" style="padding-top:0;">
+      <div style="background: #eef2ff; border-radius: 60px; padding: 2.5rem 2rem; text-align: center;">
+        <h2 style="font-size: 2.2rem; font-weight: 600;">👋 let’s connect</h2>
+        <p style="font-size: 1.3rem; margin: 1rem 0 2rem; color: #1e293b;">I'm always open to new opportunities & collaborations.</p>
+        <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+          <a href="#" class="btn btn-primary" style="background:#1e293b;"><i class="far fa-envelope"></i> vijayakhandekar2912@gmail.com</a>
+          <a href="https://github.com/vijayakhandekar2105/" class="btn btn-outline" style="border-color:#2563eb; color:#2563eb;"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/vijaya-khandekar-87422432a/" class="btn btn-outline" style="border-color:#0a66c2; color:#0a66c2;"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+        <p style="margin-top: 2rem; opacity:0.7;">or find me on <i class="fab fa-x-twitter"></i> @vijaya-khandekar</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer -->
+  <footer class="footer">
+    <p>© 2026 vijaya khandekar – built with <i class="fas fa-heart" style="color:#ef4444;"></i> for the portfolio challenge</p>
+    <p style="margin-top: 0.8rem; font-size: 0.9rem;">
+      <a href="#bio">biography</a> · <a href="#skills">skills</a> · <a href="#projects">project links</a>
+    </p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

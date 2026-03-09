@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaNav · responsive navigation bar</title>
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="navbar">
+      <!-- logo with enhanced animation -->
+      <div class="logo">
+        <a href="#">
+          <span>✦</span> NovaNav
+        </a>
+      </div>
+
+      <!-- hidden checkbox for toggle -->
+      <input type="checkbox" id="nav-toggle">
+
+      <!-- hamburger label with animation -->
+      <label for="nav-toggle" class="hamburger" aria-label="toggle navigation menu">
+        <i></i>
+      </label>
+
+      <!-- navigation menu with icons -->
+      <ul class="nav-menu">
+        <li><a href="#" class="active"><i class="fas fa-home"></i> home</a></li>
+        <li><a href="#"><i class="fas fa-info-circle"></i> about</a></li>
+        <li class="has-dropdown">
+          <a href="#"><i class="fas fa-cogs"></i> services</a>
+        </li>
+        <li><a href="#"><i class="fas fa-briefcase"></i> portfolio</a></li>
+        <li><a href="#"><i class="fas fa-envelope"></i> contact</a></li>
+        
+        <!-- search bar integrated into mobile menu -->
+        <li class="nav-search">
+          <input type="text" placeholder="Search..." aria-label="Search">
+          <button type="submit" aria-label="Submit search"><i class="fas fa-search"></i></button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- main demo content -->
+  <main class="demo-content">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+      <h2>✨ modern responsive navigation</h2>
+      <span class="active-demo"><i class="fas fa-mobile-alt"></i> try resizing</span>
+    </div>
+    
+    <p>
+      This enhanced navigation bar features <strong>glassmorphism design, smooth animations, and pure CSS toggle</strong> — no JavaScript required. 
+      It includes icon support, a search bar, and beautiful hover effects.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h3><i class="fas fa-magic" style="color:#667eea;"></i> glass effect</h3>
+        <p>Modern frosted glass design with backdrop blur that adapts to scroll position.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-underline" style="color:#764ba2;"></i> pill hover</h3>
+        <p>Beautiful pill-shaped hover states with ripple animation and icon scaling.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-search" style="color:#667eea;"></i> smart search</h3>
+        <p>Integrated search bar that expands on focus, fully responsive on mobile.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-bolt" style="color:#764ba2;"></i> 60fps</h3>
+        <p>Buttery smooth animations using transform and opacity for optimal performance.</p>
+      </div>
+    </div>
+
+    <div style="background: #f7fafc; padding: 2rem; border-radius: 30px; margin-top: 2rem;">
+      <h3 style="color: #2d3748; margin-bottom: 1rem;">📱 mobile preview</h3>
+      <p style="margin-bottom: 1rem;">Below 768px, the menu transforms into a full-height overlay with animated hamburger icon that rotates into a close (X) button.</p>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <span style="background: #667eea; color: white; padding: 0.5rem 1rem; border-radius: 20px;"><i class="fas fa-arrow-left"></i> back button</span>
+        <span style="background: #764ba2; color: white; padding: 0.5rem 1rem; border-radius: 20px;">next <i class="fas fa-arrow-right"></i></span>
+        <span style="background: #e2e8f0; color: #4a5568; padding: 0.5rem 1rem; border-radius: 20px;"><i class="fas fa-sync-alt"></i> reset</span>
+      </div>
+    </div>
+
+    <p style="margin-top: 2rem; color: #718096; font-style: italic;">
+      <i class="fas fa-code-branch" style="color:#667eea;"></i> 
+      resize browser below 768px to see mobile version. click hamburger icon to expand/collapse.
+    </p>
+  </main>
+
+  <!-- footer -->
+  <footer class="footer">
+    <p>© 2026 NovaNav · built with <i class="fas fa-heart" style="color: #ff6b6b;"></i> for responsive design</p>
+    <p style="margin-top: 0.5rem;">
+      <a href="#"><i class="fab fa-github"></i> github</a> · 
+      <a href="#"><i class="fab fa-codepen"></i> codepen</a> · 
+      <a href="#"><i class="fas fa-globe"></i> demo</a>
+    </p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

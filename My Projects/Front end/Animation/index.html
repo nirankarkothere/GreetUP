@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS animation lab · interactive playground</title>
+  <!-- Font Awesome for icons (optional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="animation-lab">
+    <h1>
+      <i class="fas fa-play"></i> 
+      CSS animation lab
+    </h1>
+    <div class="subhead">hover, click, and toggle — 10 interactive animations powered entirely by CSS</div>
+
+    <!-- animation grid: 10 cards, each with a unique effect -->
+    <div class="animation-grid">
+      
+      <!-- 1. PULSE GLOW (hover) -->
+      <div class="anim-card">
+        <div class="card-title"><i class="fas fa-circle-radiation"></i> pulse glow</div>
+        <div class="demo-area">
+          <div class="pulse-box"></div>
+        </div>
+        <div class="interaction-hint">
+          <span><i class="fas fa-mouse-pointer"></i> hover to pulse</span>
+          <span class="badge">hover</span>
+        </div>
+      </div>
+
+      <!-- 2. SPINNING LOADER (click/toggle) -->
+      <div class="anim-card">
+        <div class="card-title"><i class="fas fa-gear"></i> spin toggle</div>
+        <div class="demo-area" style="flex-direction: column; gap: 15px;">
+          <input type="checkbox" id="spin-toggle" class="spin-toggle">
+          <label for="spin-toggle" class="spin-label"><i class="fas fa-power-off"></i> click to spin</label>
+          <div class="spinner"></div>
+        </div>
+        <div class="interaction-hint">
+          <span><i class="fas fa-toggle-on"></i> click label</span>
+          <span class="badge">click</span>
+        </div>
+      </div>
+
+      <!-- 3. BOUNCE (hover) -->
+      <div class="anim-card">
+        <div class="card-title"><i class="fas fa-basketball"></i> bounce</div>
+        <div class="demo-area">
+          <div class="bounce-ball"></div>
+        </div>
+        <div class="interaction-hint">
+          <span><i class="fas fa-mouse-pointer"></i> hover to bounce</span>
+          <span class="badge">hover</span>
+        </div>
+      </div>
+
+      <!-- 4. SHAKE (active / click) -->
+      <div class="anim-card">
+        <div class="card-title"><i class="fas fa-hand"></i> shake</div>
+        <div class="demo-area">
+          <div class="shake-box">click me</div>
+        </div>
+        <div class="interaction-hint">
+          <span><i class="fas fa-mouse-pointer"></i> click and hold</span>
+          <span class="badge">active</span>
+        </div>
+      </div>
+
+      <!-- 5. FADE PULSE (hover) -->
+      <div class="anim-card">
+        <div class="card-title"><i class="fas fa-eye"></i> fade pulse</div>
+        <div class="demo-area">
+          <div class="fade-cube"></div>
+        </div>
+        <div class="interaction-hint">
+          <span><i class="fas fa-mouse-pointer"></i> hover to fade</span>
+          <span class="badge">hover</span>
+        </div>
+      </div>
+
+      <!-- 6. 3D TILT (hover) -->
+      <div class="anim-card">
+        <div class="card-title"><i class="fas fa-cube"></i> 3D tilt</div>
+        <div class="demo-area">
+          <div class="tilt-card"></div>
+        </div>
+        <div class="interaction-hint">
+          <span><i class="fas fa-mouse-pointer"></i> hover to tilt</span>
+          <span class="badge">hover</span>
+        </div>
+      </div>
+
+      <!-- 7. LOADING DOTS (infinite) -->
+      <div class="anim-card">
+        <div class="card-title"><i class="fas fa-ellipsis"></i> wave dots</div>
+        <div class="demo-area">
+          <div class="dots-container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+        <div class="interaction-hint">
+          <span><i class="fas fa-infinity"></i> infinite auto</span>
+          <span class="badge">autoplay</span>
+        </div>
+      </div>
+
+      <!-- 8. HEARTBEAT (hover) -->
+      <div class="anim-card">
+        <div class="card-title"><i class="fas fa-heart"></i> heartbeat</div>
+        <div class="demo-area">
+          <i class="fas fa-heart heart"></i>
+        </div>
+        <div class="interaction-hint">
+          <span><i class="fas fa-mouse-pointer"></i> hover to beat</span>
+          <span class="badge">hover</span>
+        </div>
+      </div>
+
+      <!-- 9. GLITCH TEXT (hover) -->
+      <div class="anim-card">
+        <div class="card-title"><i class="fas fa-code"></i> glitch</div>
+        <div class="demo-area">
+          <div class="glitch-text">glitch</div>
+        </div>
+        <div class="interaction-hint">
+          <span><i class="fas fa-mouse-pointer"></i> hover to glitch</span>
+          <span class="badge">hover</span>
+        </div>
+      </div>
+
+      <!-- 10. NEON PULSE (hover) -->
+      <div class="anim-card">
+        <div class="card-title"><i class="fas fa-bolt"></i> neon pulse</div>
+        <div class="demo-area">
+          <div class="neon-box"></div>
+        </div>
+        <div class="interaction-hint">
+          <span><i class="fas fa-mouse-pointer"></i> hover to glow</span>
+          <span class="badge">hover</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- extra info: floating shape + keyframe example (infinite without interaction) -->
+    <div style="margin-top: 3rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; background: #0e1629; border-radius: 50px; padding: 1.8rem;">
+      <div style="flex: 1; min-width: 200px;">
+        <h3 style="color: white; font-size: 1.8rem; margin-bottom: 0.5rem;">✨ always animating</h3>
+        <p style="color: #9fb3cc;">some elements run automatically (keyframes). The star icon in the header floats — pure CSS, no interaction needed.</p>
+      </div>
+      <div style="display: flex; gap: 2rem; align-items: center;">
+        <i class="fas fa-star" style="font-size: 4rem; color: #fbbf24; animation: float 2s ease-in-out infinite; filter: drop-shadow(0 0 10px #f59e0b);"></i>
+        <div style="width: 70px; height: 70px; border-radius: 20px; background: linear-gradient(145deg, #38bdf8, #2563eb); animation: pulse-glow 2s infinite;"></div>
+      </div>
+    </div>
+
+    <!-- footer note -->
+    <div style="text-align: center; margin-top: 3rem; color: #5f7a9a; font-size: 0.95rem;">
+      <i class="fas fa-css3-alt" style="color: #3b82f6;"></i> 
+      each animation uses <strong>@keyframes</strong> + <strong>hover</strong>, <strong>active</strong>, or <strong>:checked</strong> — no JavaScript
+    </div>
+  </div>
+</body>
+</html>

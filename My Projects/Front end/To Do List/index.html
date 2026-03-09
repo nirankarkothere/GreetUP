@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>do · simple to-do</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="todo-container">
+    <h1>
+      <i class="fas fa-check-circle" style="color: #3b82f6;"></i>
+      do
+    </h1>
+    
+    <div class="subhead">
+      <span>simple tasks, clear mind</span>
+      <div class="stats">
+        <span><i class="far fa-clock"></i> <span id="currentTime"></span></span>
+        <span><i class="far fa-calendar"></i> <span id="currentDate"></span></span>
+      </div>
+    </div>
+
+    <!-- add task -->
+    <div class="add-task">
+      <div class="input-group">
+        <input type="text" id="taskInput" placeholder="write a task..." autocomplete="off">
+        
+        <select id="prioritySelect" class="priority-select">
+          <option value="high">🔴 high</option>
+          <option value="medium" selected>🟡 medium</option>
+          <option value="low">🟢 low</option>
+        </select>
+
+        <button id="addBtn" class="add-btn">
+          <i class="fas fa-plus"></i>
+          add
+        </button>
+      </div>
+
+      <!-- filters -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">all</button>
+        <button class="filter-btn" data-filter="active">active</button>
+        <button class="filter-btn" data-filter="completed">done</button>
+      </div>
+    </div>
+
+    <!-- tasks -->
+    <div class="tasks-container">
+      <div class="tasks-header">
+        <div class="tasks-count">
+          <i class="far fa-list-alt"></i>
+          <span id="taskCount">0 tasks</span>
+        </div>
+        <div class="progress-ring" id="progressRing">
+          <span id="progressPercent">0%</span>
+        </div>
+      </div>
+
+      <ul id="taskList"></ul>
+
+      <!-- empty state -->
+      <div id="emptyState" class="empty-state" style="display: none;">
+        <i class="far fa-smile"></i>
+        <p>all done!</p>
+        <small>add a task to get started</small>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+      <div class="save-indicator">
+        <i class="fas fa-check-circle"></i>
+        <span>saved</span>
+      </div>
+      
+      <button class="clear-btn" id="clearCompletedBtn" disabled>
+        <i class="fas fa-trash-alt"></i>
+        clear done
+      </button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

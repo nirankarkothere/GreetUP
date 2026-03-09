@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Spark · dynamic quiz (OpenTrivia)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="quiz-wrapper">
+    <h1>
+      <i class="fas fa-bolt"></i> brain spark · dynamic
+    </h1>
+
+    <!-- category selector (Open Trivia DB categories) -->
+    <div class="category-box">
+      <label for="categorySelect"><i class="fas fa-tag"></i> Topic:</label>
+      <select id="categorySelect">
+        <option value="18">💻 Computer Science</option>
+        <option value="9">🧠 General Knowledge</option>
+        <option value="21">⚽ Sports</option>
+        <option value="23">📜 History</option>
+        <option value="22">🌍 Geography</option>
+        <option value="17">🔬 Science & Nature</option>
+      </select>
+    </div>
+
+    <!-- main quiz area -->
+    <div id="quizContainer">
+      <div class="quiz-header">
+        <span class="question-counter" id="counter">0/5</span>
+        <span class="score-display"><i class="fas fa-star"></i> <span id="scoreValue">0</span></span>
+      </div>
+
+      <div class="question-box">
+        <div class="question-text" id="questionText">
+          <i class="fas fa-spinner fa-spin"></i> loading questions...
+        </div>
+        <div class="options-grid" id="optionsContainer"></div>
+      </div>
+
+      <div class="action-bar">
+        <button class="btn btn-secondary" id="prevBtn" disabled><i class="fas fa-arrow-left"></i> back</button>
+        <button class="btn btn-primary" id="nextBtn">next <i class="fas fa-arrow-right"></i></button>
+        <button class="btn btn-secondary" id="newQuizBtn"><i class="fas fa-sync-alt"></i> New Quiz</button>
+      </div>
+
+      <!-- result panel (hidden initially) -->
+      <div id="resultPanel" class="result-panel hidden">
+        <h2>🏁 quiz complete</h2>
+        <div class="final-score" id="finalScore">0 / 5</div>
+        <div class="result-message" id="resultMessage">great effort!</div>
+        <button class="btn btn-primary" id="playAgainBtn" style="margin-top: 0.5rem;">
+          <i class="fas fa-play"></i> play again
+        </button>
+      </div>
+
+      <!-- feedback line (warning / message) -->
+      <div id="feedbackMsg"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

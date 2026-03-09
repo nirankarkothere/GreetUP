@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WanderRead Pro · modern blog experience</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- Google Fonts for better typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">k
+</head>
+<body>
+  <!-- header -->
+  <header class="header" id="header">
+    <nav class="nav-container">
+      <div class="logo">
+        <a href="#"><span>✦</span>wander<span>read</span></a>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="#">home</a></li>
+        <li><a href="#">articles</a></li>
+        <li><a href="#">categories</a></li>
+        <li><a href="#">about</a></li>
+        <li><a href="#">contact</a></li>
+      </ul>
+      
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="search articles...">
+      </div>
+    </nav>
+  </header>
+
+  <!-- hero section -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="featured-post">
+        <span class="featured-badge"><i class="fas fa-star"></i> featured story</span>
+        <h2>the art of slow travel: finding meaning in the journey</h2>
+        <p style="font-size: 1.1rem; opacity: 0.9;">discover how embracing a slower pace can transform your travel experiences and deepen your connection with places.</p>
+        <div class="featured-meta">
+          <span><i class="far fa-clock"></i> 8 min read</span>
+          <span><i class="far fa-user"></i> by alex rivera</span>
+        </div>
+        <a href="#" class="read-more" style="color: white;">read feature <i class="fas fa-arrow-right"></i></a>
+      </div>
+      
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">150+</div>
+          <div style="color: #64748b;">articles</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">12k</div>
+          <div style="color: #64748b;">readers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5</div>
+          <div style="color: #64748b;">authors</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- main content -->
+  <div class="main-container">
+    <!-- blog posts with masonry -->
+    <section class="blog-posts">
+      <!-- post 1 - featured -->
+      <article class="post-card featured">
+        <div class="post-image img-1">
+          <span class="post-category">travel</span>
+        </div>
+        <div class="post-content">
+          <div class="post-meta">
+            <span><i class="far fa-calendar"></i> mar 10, 2026</span>
+            <span><i class="far fa-comment"></i> 24 comments</span>
+          </div>
+          <h3 class="post-title"><a href="#">finding peace in the mountains: a weekend in the alps</a></h3>
+          <p class="post-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...</p>
+          <div class="author-info">
+            <div class="author-avatar-small"><i class="fas fa-user"></i></div>
+            <div>
+              <div class="author-name">alex rivera</div>
+              <div class="author-title">travel editor</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- post 2 -->
+      <article class="post-card">
+        <div class="post-image img-2">
+          <span class="post-category">lifestyle</span>
+        </div>
+        <div class="post-content">
+          <div class="post-meta">
+            <span><i class="far fa-calendar"></i> mar 5, 2026</span>
+            <span><i class="far fa-comment"></i> 12 comments</span>
+          </div>
+          <h3 class="post-title"><a href="#">morning routines of successful creatives</a></h3>
+          <p class="post-excerpt">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur...</p>
+          <a href="#" class="read-more">read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- post 3 -->
+      <article class="post-card">
+        <div class="post-image img-3">
+          <span class="post-category">technology</span>
+        </div>
+        <div class="post-content">
+          <div class="post-meta">
+            <span><i class="far fa-calendar"></i> feb 28, 2026</span>
+            <span><i class="far fa-comment"></i> 18 comments</span>
+          </div>
+          <h3 class="post-title"><a href="#">the future of ai: what we learned this year</a></h3>
+          <p class="post-excerpt">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium...</p>
+          <a href="#" class="read-more">read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- post 4 -->
+      <article class="post-card">
+        <div class="post-image img-4">
+          <span class="post-category">food</span>
+        </div>
+        <div class="post-content">
+          <div class="post-meta">
+            <span><i class="far fa-calendar"></i> feb 20, 2026</span>
+            <span><i class="far fa-comment"></i> 15 comments</span>
+          </div>
+          <h3 class="post-title"><a href="#">10 plant-based recipes you need to try</a></h3>
+          <p class="post-excerpt">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur...</p>
+          <a href="#" class="read-more">read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- post 5 -->
+      <article class="post-card">
+        <div class="post-image img-5">
+          <span class="post-category">health</span>
+        </div>
+        <div class="post-content">
+          <div class="post-meta">
+            <span><i class="far fa-calendar"></i> feb 15, 2026</span>
+            <span><i class="far fa-comment"></i> 9 comments</span>
+          </div>
+          <h3 class="post-title"><a href="#">mindfulness in the digital age</a></h3>
+          <p class="post-excerpt">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum...</p>
+          <a href="#" class="read-more">read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+
+      <!-- post 6 -->
+      <article class="post-card">
+        <div class="post-image img-6">
+          <span class="post-category">design</span>
+        </div>
+        <div class="post-content">
+          <div class="post-meta">
+            <span><i class="far fa-calendar"></i> feb 10, 2026</span>
+            <span><i class="far fa-comment"></i> 21 comments</span>
+          </div>
+          <h3 class="post-title"><a href="#">minimalist design principles for modern living</a></h3>
+          <p class="post-excerpt">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est...</p>
+          <a href="#" class="read-more">read more <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </article>
+    </section>
+
+    <!-- enhanced sidebar -->
+    <aside class="sidebar">
+      <!-- author widget -->
+      <div class="sidebar-widget">
+        <div class="author-avatar">
+          <i class="fas fa-pen-fancy"></i>
+        </div>
+        <h3 class="widget-title">meet the team</h3>
+        <p style="color: #475569; text-align: center;">we're a group of writers passionate about sharing ideas and stories that matter.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+
+      <!-- categories with progress -->
+      <div class="sidebar-widget">
+        <h3 class="widget-title">categories</h3>
+        <ul class="categories-list">
+          <li>
+            <a href="#">
+              <span><i class="fas fa-plane" style="color: #3b82f6;"></i> travel</span>
+              <div class="category-progress"><div class="category-progress-fill" style="width: 75%"></div></div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span><i class="fas fa-heart" style="color: #ef4444;"></i> lifestyle</span>
+              <div class="category-progress"><div class="category-progress-fill" style="width: 60%"></div></div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span><i class="fas fa-microchip" style="color: #8b5cf6;"></i> technology</span>
+              <div class="category-progress"><div class="category-progress-fill" style="width: 90%"></div></div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span><i class="fas fa-utensils" style="color: #f59e0b;"></i> food</span>
+              <div class="category-progress"><div class="category-progress-fill" style="width: 45%"></div></div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- popular posts with view counts -->
+      <div class="sidebar-widget">
+        <h3 class="widget-title">trending now</h3>
+        
+        <div class="popular-post">
+          <div class="popular-image img-1"></div>
+          <div class="popular-content">
+            <h4><a href="#">finding peace in the mountains</a></h4>
+            <div class="popular-meta">
+              <span><i class="far fa-eye"></i> 2.4k</span>
+              <span><i class="far fa-heart"></i> 156</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="popular-post">
+          <div class="popular-image img-2"></div>
+          <div class="popular-content">
+            <h4><a href="#">morning routines of creatives</a></h4>
+            <div class="popular-meta">
+              <span><i class="far fa-eye"></i> 1.8k</span>
+              <span><i class="far fa-heart"></i> 98</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="popular-post">
+          <div class="popular-image img-3"></div>
+          <div class="popular-content">
+            <h4><a href="#">the future of ai explained</a></h4>
+            <div class="popular-meta">
+              <span><i class="far fa-eye"></i> 3.2k</span>
+              <span><i class="far fa-heart"></i> 203</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- newsletter with guarantee -->
+      <div class="sidebar-widget">
+        <h3 class="widget-title">weekly newsletter</h3>
+        <p style="color: #475569; margin-bottom: 1rem;">join 5,000+ readers getting fresh ideas every week</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="your email">
+          <button class="subscribe-btn"><i class="fas fa-paper-plane"></i> subscribe</button>
+          <p style="font-size: 0.7rem; color: #94a3b8; text-align: center;">no spam, unsubscribe anytime</p>
+        </div>
+      </div>
+
+      <!-- tags -->
+      <div class="sidebar-widget">
+        <h3 class="widget-title">popular tags</h3>
+        <div class="tags-cloud">
+          <a href="#" class="tag">travel</a>
+          <a href="#" class="tag">photography</a>
+          <a href="#" class="tag">lifestyle</a>
+          <a href="#" class="tag">tech</a>
+          <a href="#" class="tag">food</a>
+          <a href="#" class="tag">health</a>
+          <a href="#" class="tag">design</a>
+          <a href="#" class="tag">mindfulness</a>
+          <a href="#" class="tag">career</a>
+          <a href="#" class="tag">books</a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- pagination -->
+  <div style="max-width: 1300px; margin: 0 auto; padding: 0 2rem;">
+    <div class="pagination">
+      <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">4</button>
+      <button class="page-btn">5</button>
+      <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>about wanderread</h3>
+        <p style="line-height: 1.8;">a digital sanctuary for curious minds. we explore ideas at the intersection of travel, technology, and creativity.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>quick links</h3>
+        <ul>
+          <li><a href="#">about us</a></li>
+          <li><a href="#">write for us</a></li>
+          <li><a href="#">advertise</a></li>
+          <li><a href="#">contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>resources</h3>
+        <ul>
+          <li><a href="#">help center</a></li>
+          <li><a href="#">privacy policy</a></li>
+          <li><a href="#">terms of use</a></li>
+          <li><a href="#">accessibility</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>connect</h3>
+        <ul>
+          <li><a href="#"><i class="fab fa-twitter"></i> twitter</a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i> instagram</a></li>
+          <li><a href="#"><i class="fab fa-github"></i> github</a></li>
+          <li><a href="#"><i class="fab fa-linkedin"></i> linkedin</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 wanderread. crafted with <i class="fas fa-heart" style="color: #ef4444;"></i> for readers everywhere</p>
+    </div>
+  </footer>
+
+  <!-- back to top -->
+  <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GridMaster Pro · responsive grid playground</title>
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="grid-showcase">
+    <h1>
+      <i class="fas fa-border-all" style="color: #2563eb;"></i> 
+      GridMaster Pro
+    </h1>
+    
+    <div class="subhead">
+      <span><i class="fas fa-magic" style="color: #2563eb;"></i> 5 grid patterns · 12 cards · fully responsive</span>
+      <div class="viewport-size" id="viewportDisplay">
+        <i class="fas fa-eye"></i> <span id="viewportWidth">1200</span>px · <span id="colCount">4</span> cols
+      </div>
+    </div>
+
+    <!-- ===== VISIBLE GRID PATTERN CONTROLS ===== -->
+    <div class="pattern-section">
+      <div class="pattern-title">
+        <i class="fas fa-layout"></i> 
+        choose grid pattern:
+      </div>
+      
+      <div class="pattern-grid">
+        <button class="pattern-btn active" data-layout="standard">
+          <i class="fas fa-th"></i> standard grid
+        </button>
+        <button class="pattern-btn" data-layout="masonry">
+          <i class="fas fa-th-large"></i> masonry style
+        </button>
+        <button class="pattern-btn" data-layout="dashboard">
+          <i class="fas fa-chart-pie"></i> dashboard
+        </button>
+        <button class="pattern-btn" data-layout="featured">
+          <i class="fas fa-star"></i> featured hero
+        </button>
+        <button class="pattern-btn" data-layout="gallery">
+          <i class="fas fa-images"></i> gallery
+        </button>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <div class="filter-chips">
+          <span class="chip active" data-filter="all">all</span>
+          <span class="chip" data-filter="nature">nature</span>
+          <span class="chip" data-filter="technology">tech</span>
+          <span class="chip" data-filter="abstract">abstract</span>
+          <span class="chip" data-filter="minimal">minimal</span>
+        </div>
+
+        <div class="view-toggle">
+          <button class="view-btn active" id="gridView"><i class="fas fa-th"></i></button>
+          <button class="view-btn" id="listView"><i class="fas fa-list"></i></button>
+          <button class="view-btn" id="compactView"><i class="fas fa-th-small"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- DYNAMIC GRID -->
+    <div class="grid-container">
+      <div class="card-grid grid-standard" id="dynamicGrid"></div>
+    </div>
+
+    <!-- STATS ROW -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <i class="fas fa-chart-line" style="color: #2563eb; font-size: 1.5rem;"></i>
+        <div class="stat-value">2.4k</div>
+        <div class="stat-label">total sales</div>
+        <div class="stat-trend"><i class="fas fa-arrow-up"></i> +12.5%</div>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-users" style="color: #10b981; font-size: 1.5rem;"></i>
+        <div class="stat-value">856</div>
+        <div class="stat-label">active users</div>
+        <div class="stat-trend"><i class="fas fa-arrow-up"></i> +5.2%</div>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-eye" style="color: #f59e0b; font-size: 1.5rem;"></i>
+        <div class="stat-value">12.8k</div>
+        <div class="stat-label">page views</div>
+        <div class="stat-trend"><i class="fas fa-arrow-down" style="color: #ef4444;"></i> -2.1%</div>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-shopping-cart" style="color: #8b5cf6; font-size: 1.5rem;"></i>
+        <div class="stat-value">342</div>
+        <div class="stat-label">orders</div>
+        <div class="stat-trend"><i class="fas fa-arrow-up"></i> +8.3%</div>
+      </div>
+    </div>
+
+    <!-- BREAKPOINT INDICATORS -->
+    <div class="breakpoints">
+      <span class="bp" data-bp="mobile"><i class="fas fa-mobile-alt"></i> mobile</span>
+      <span class="bp" data-bp="tablet"><i class="fas fa-tablet-alt"></i> tablet</span>
+      <span class="bp" data-bp="desktop"><i class="fas fa-laptop"></i> desktop</span>
+      <span class="bp" data-bp="wide"><i class="fas fa-desktop"></i> wide</span>
+    </div>
+
+    <div class="footer">
+      <i class="fas fa-code-branch" style="color: #2563eb;"></i> 
+      click the pattern buttons above to change grid layout · resize browser to see responsiveness
+    </div>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

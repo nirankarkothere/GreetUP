@@ -1,0 +1,381 @@
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(145deg, #0b1120 0%, #19223f 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    /* main container */
+    .animation-lab {
+      max-width: 1300px;
+      width: 100%;
+      background: rgba(18, 25, 45, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 64px;
+      padding: 3rem;
+      box-shadow: 0 40px 60px -20px #00000080, 0 0 0 1px rgba(255,255,255,0.05) inset;
+      border: 1px solid rgba(255,255,255,0.03);
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #a6c1ff, #d6e4ff);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    h1 i {
+      background: #2a3a60;
+      padding: 15px;
+      border-radius: 50%;
+      color: white;
+      font-size: 2rem;
+      box-shadow: 0 10px 20px -5px #000000;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .subhead {
+      font-size: 1.2rem;
+      color: #94a3b8;
+      margin-bottom: 3rem;
+      border-left: 4px solid #3b82f6;
+      padding-left: 1.2rem;
+    }
+
+    /* grid layout for animation cards */
+    .animation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    /* base card style */
+    .anim-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 40px;
+      padding: 2rem 1.8rem;
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s;
+      box-shadow: 0 20px 30px -15px #00000060;
+    }
+
+    .anim-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(59,130,246,0.3);
+    }
+
+    .card-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card-title i {
+      color: #3b82f6;
+      font-size: 1.8rem;
+    }
+
+    /* demo box where animation happens */
+    .demo-area {
+      background: rgba(0,0,0,0.25);
+      border-radius: 30px;
+      padding: 2rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+      border: 1px dashed #334155;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ---------- ANIMATION ELEMENTS ---------- */
+
+    /* 1. PULSING GLOW (hover) */
+    .pulse-box {
+      width: 100px;
+      height: 100px;
+      background: linear-gradient(145deg, #3b82f6, #2563eb);
+      border-radius: 30px;
+      box-shadow: 0 10px 25px -5px #1e3a8a;
+      transition: all 0.3s;
+    }
+
+    .pulse-box:hover {
+      animation: pulse-glow 1.5s infinite;
+    }
+
+    @keyframes pulse-glow {
+      0% { box-shadow: 0 0 0 0 rgba(59,130,246,0.7); transform: scale(1); }
+      50% { box-shadow: 0 0 30px 15px rgba(59,130,246,0.3); transform: scale(1.05); }
+      100% { box-shadow: 0 0 0 0 rgba(59,130,246,0.7); transform: scale(1); }
+    }
+
+    /* 2. SPINNING LOADER (click trigger via checkbox) */
+    .spin-toggle {
+      display: none;
+    }
+
+    .spin-label {
+      display: inline-block;
+      background: #1e293b;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 60px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      border: 1px solid #3b82f6;
+      margin-bottom: 1rem;
+    }
+
+    .spin-label:hover {
+      background: #2d3a4f;
+    }
+
+    .spinner {
+      width: 80px;
+      height: 80px;
+      border: 6px solid #334155;
+      border-top: 6px solid #3b82f6;
+      border-radius: 50%;
+      transition: all 0.2s;
+    }
+
+    #spin-toggle:checked ~ .spinner {
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* 3. BOUNCE ON HOVER */
+    .bounce-ball {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(145deg, #f59e0b, #d97706);
+      border-radius: 50%;
+      box-shadow: 0 15px 25px -5px #b45309;
+    }
+
+    .bounce-ball:hover {
+      animation: bounce 0.8s ease infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+    }
+
+    /* 4. SLIDE IN / SHAKE (on click via active) */
+    .shake-box {
+      width: 120px;
+      height: 100px;
+      background: linear-gradient(145deg, #8b5cf6, #7c3aed);
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.1s;
+      user-select: none;
+      box-shadow: 0 15px 25px -5px #5b21b6;
+    }
+
+    .shake-box:active {
+      animation: shake 0.3s ease;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-12px); }
+      40% { transform: translateX(12px); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(6px); }
+    }
+
+    /* 5. FADE IN / OUT (hover to fade) */
+    .fade-cube {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(145deg, #ef4444, #dc2626);
+      border-radius: 20px;
+      box-shadow: 0 15px 25px -5px #991b1b;
+      transition: opacity 0.3s;
+    }
+
+    .fade-cube:hover {
+      animation: fadePulse 1.2s infinite;
+    }
+
+    @keyframes fadePulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* 6. ROTATE 3D TILT (hover) */
+    .tilt-card {
+      width: 110px;
+      height: 110px;
+      background: linear-gradient(145deg, #14b8a6, #0d9488);
+      border-radius: 30px;
+      transform-style: preserve-3d;
+      box-shadow: 0 15px 25px -5px #115e59;
+    }
+
+    .tilt-card:hover {
+      animation: tilt 1s infinite;
+    }
+
+    @keyframes tilt {
+      0% { transform: rotateX(0deg) rotateY(0deg); }
+      25% { transform: rotateX(10deg) rotateY(10deg); }
+      50% { transform: rotateX(-5deg) rotateY(-5deg); }
+      75% { transform: rotateX(5deg) rotateY(-5deg); }
+      100% { transform: rotateX(0deg) rotateY(0deg); }
+    }
+
+    /* 7. LOADING DOTS (keyframe infinite) */
+    .dots-container {
+      display: flex;
+      gap: 12px;
+    }
+
+    .dot {
+      width: 20px;
+      height: 20px;
+      background: #3b82f6;
+      border-radius: 50%;
+      animation: dotWave 1.2s ease-in-out infinite;
+    }
+
+    .dot:nth-child(2) { animation-delay: 0.2s; background: #60a5fa; }
+    .dot:nth-child(3) { animation-delay: 0.4s; background: #93c5fd; }
+
+    @keyframes dotWave {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-20px); }
+    }
+
+    /* 8. HEARTBEAT (hover) */
+    .heart {
+      font-size: 5rem;
+      color: #f43f5e;
+      transition: 0.2s;
+      cursor: pointer;
+      filter: drop-shadow(0 10px 15px #9f1239);
+    }
+
+    .heart:hover {
+      animation: heartbeat 1s infinite;
+    }
+
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.2); }
+      35% { transform: scale(1); }
+      45% { transform: scale(1.15); }
+      55% { transform: scale(1); }
+    }
+
+    /* 9. GLITCH (hover) */
+    .glitch-text {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: white;
+      text-transform: uppercase;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .glitch-text:hover {
+      animation: glitch 0.3s infinite;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); text-shadow: 2px 0 #ff0000, -2px 0 #0000ff; }
+      25% { transform: translate(-2px, 1px); text-shadow: -3px 1px #ff0000, 3px -1px #0000ff; }
+      50% { transform: translate(2px, -1px); text-shadow: 3px -1px #ff0000, -3px 1px #0000ff; }
+      75% { transform: translate(-1px, 2px); text-shadow: -1px 2px #ff0000, 1px -2px #0000ff; }
+      100% { transform: translate(0); text-shadow: 2px 0 #ff0000, -2px 0 #0000ff; }
+    }
+
+    /* 10. NEON PULSE (hover) */
+    .neon-box {
+      width: 120px;
+      height: 120px;
+      background: #0f172a;
+      border: 2px solid #22d3ee;
+      border-radius: 40px;
+      box-shadow: 0 0 10px #22d3ee;
+    }
+
+    .neon-box:hover {
+      animation: neonPulse 1s infinite;
+    }
+
+    @keyframes neonPulse {
+      0% { box-shadow: 0 0 10px #22d3ee, 0 0 20px #22d3ee; }
+      50% { box-shadow: 0 0 30px #22d3ee, 0 0 60px #22d3ee; border-color: #a5f3fc; }
+      100% { box-shadow: 0 0 10px #22d3ee, 0 0 20px #22d3ee; }
+    }
+
+    /* description & interaction hints */
+    .interaction-hint {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #9aa9bb;
+      font-size: 0.95rem;
+      border-top: 1px solid #1e2a3a;
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .badge {
+      background: #1e2a3a;
+      padding: 5px 12px;
+      border-radius: 30px;
+      color: #b9c9e0;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* additional keyframe demo (floating) */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* responsive */
+    @media (max-width: 700px) {
+      .animation-lab { padding: 1.8rem; }
+      h1 { font-size: 2.4rem; }
+    }
