@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Start Day</title>
+
+<style>
+    *{
+        box-sizing:border-box;
+        font-family:"Segoe UI", Tahoma, sans-serif;
+    }
+
+    body{
+        margin:0;
+        height:100vh;
+        background:linear-gradient(135deg,#141e30,#243b55);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .card{
+        width:360px;
+        background:#fff;
+        padding:30px;
+        border-radius:16px;
+        box-shadow:0 25px 50px rgba(0,0,0,0.3);
+        animation:slideIn .6s ease;
+    }
+
+    @keyframes slideIn{
+        from{opacity:0; transform:translateY(25px);}
+        to{opacity:1; transform:translateY(0);}
+    }
+
+    h2{
+        text-align:center;
+        margin-bottom:10px;
+        color:#222;
+        letter-spacing:1px;
+    }
+
+    .subtitle{
+        text-align:center;
+        font-size:13px;
+        color:#666;
+        margin-bottom:25px;
+    }
+
+    input{
+        width:100%;
+        padding:12px;
+        border-radius:10px;
+        border:1px solid #ddd;
+        margin-bottom:18px;
+        font-size:15px;
+        transition:.3s;
+    }
+
+    input:focus{
+        outline:none;
+        border-color:#243b55;
+        box-shadow:0 0 8px rgba(36,59,85,0.4);
+    }
+
+    button{
+        width:100%;
+        padding:12px;
+        border:none;
+        border-radius:10px;
+        background:linear-gradient(135deg,#243b55,#141e30);
+        color:#fff;
+        font-size:15px;
+        cursor:pointer;
+        transition:.3s;
+    }
+
+    button:hover{
+        transform:translateY(-2px);
+        box-shadow:0 12px 30px rgba(0,0,0,0.35);
+    }
+
+    .note{
+        text-align:center;
+        margin-top:15px;
+        font-size:12px;
+        color:#777;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>🌅 Start Day</h2>
+    <div class="subtitle">Enter today’s opening cash</div>
+
+    <form action="start_day.php" method="POST">
+        <input type="number" name="cash" placeholder="Opening Cash Amount" required>
+        <button type="submit">Start Day</button>
+    </form>
+
+    <div class="note">
+        Sub-Admin Authorized Only 🔐
+    </div>
+</div>
+
+</body>
+</html>

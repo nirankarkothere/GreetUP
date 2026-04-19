@@ -1,0 +1,88 @@
+body{
+    background:radial-gradient(circle,#1c92d2,#f2fcfe);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family:Segoe UI,sans-serif;
+}
+
+.auth-container{
+    perspective:1000px;
+}
+
+.card{
+    width:320px;
+    height:400px;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:1s;
+}
+
+.card.flipped{
+    transform:rotateY(180deg);
+}
+
+.face{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:linear-gradient(135deg,#1c92d2,#f2fcfe);
+    color:rgb(255, 255, 255);
+    box-shadow:0 10px 25px rgba(0,0,0,.5);
+
+    border-radius:18px;
+    padding:30px;
+    backface-visibility:hidden;
+}
+
+.back{
+    transform:rotateY(180deg);
+}
+
+.face input{
+    width:100%;
+    margin:10px 0;
+    padding:10px;
+    border-radius:25px;
+    border:none;
+}
+
+.face button{
+    width:50%;
+    margin-left: 25%;
+    padding:10px;
+    border:none;
+    border-radius:25px;
+    background:#f27900;
+    color:white;
+}
+
+.face span{
+    color:#6343c5;
+    cursor:pointer;
+}
+
+
+.forgot{
+    transform:rotateY(90deg);
+}
+
+.card.forgot-mode{
+    transform:rotateY(-90deg);
+}
+
+
+.inner-close{
+    position:absolute;
+    top:12px;
+    right:12px;
+    font-size:18px;
+    color:#fff;
+    cursor:pointer;
+    z-index:999;
+    opacity:.7;
+}
+.inner-close:hover{
+    opacity:1;
+}

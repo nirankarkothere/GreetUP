@@ -1,0 +1,183 @@
+body {
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#1c92d2,#f2fcfe);
+    text-align:center;
+}
+
+main{
+    background: linear-gradient(135deg,#1c92d2,#f2fcfe);
+    box-shadow:0 10px 25px rgba(0,0,0,.5);
+}
+.search-form{
+    position: relative;
+    display:flex;
+    justify-content:flex-end;
+    padding:20px 30px;
+}
+
+.top{
+    width: 320px;
+    padding:0px;
+    margin: 0px;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    flex-wrap:nowrap;
+
+    /* text-align: center; */
+}
+
+.icon-group{
+    display:flex;
+    /* padding-right: 2px; */
+    /* align-items:right; */
+    gap:10px;      /* space between icons */
+    white-space:nowrap;
+}
+
+.icon-group i{
+    display: inline-flex;
+    font-size:30px;
+    color:white;
+    padding:11px;
+    cursor:pointer;
+}
+
+.icon-group i:hover{
+    color:#000000;
+}
+
+.top input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    background:#c2c2c2;
+    box-shadow:0 10px 25px rgba(0,0,0,.5);
+    color:white;
+}
+
+.search-form{
+    position:relative;
+    display:flex;
+    justify-content:flex-end;
+    padding:20px 30px;
+}
+
+/* search bar */
+.top{
+    width:590px;
+    padding:0;
+}
+
+/* input field */
+.top input{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    background:#ffffff;
+    box-shadow:0 10px 25px rgba(0,0,0,.5);
+    color:black;
+}
+
+/* result panel */
+.search-results{
+    position:absolute;
+    top:70px;           /* exactly below search bar */
+    right:30px;        /* same right padding as form */
+    width:320px;       /* same width as search bar */
+    /* background:#33333c; */
+    border-radius:14px;
+    max-height:300px;
+    overflow:auto;
+    z-index:1000;
+}
+
+.search-results .tile{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:12px;
+    border-bottom:1px solid #333;
+}
+
+
+
+.greet {
+    padding:60px;
+    color:white;
+}
+
+.services {
+    display:flex;
+    justify-content:center;
+    gap:40px;
+}
+
+.card {
+    width:260px;
+    padding:30px;
+    background:white;
+    border-radius:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.card:hover { transform: translateY(-8px); }
+
+.btn {
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 30px;
+    background:#1c92d2;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+}
+
+.btn:hover {
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 30px;
+    background:#1c92d2;
+    color:rgb(30, 30, 30);
+    text-decoration:none;
+    border-radius:30px;
+}
+
+.recharge-bills{
+    padding:15px;
+}
+
+.finance-tax{
+    padding:15px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.tile{
+    background:#fefeff;
+    border-radius:14px;
+    padding:20px 10px;
+    text-align:center;
+    box-shadow:0 6px 20px rgba(0,0,0,.4);
+    transition:.3s;
+}
+
+.tile:hover{
+    transform:translateY(-6px);
+    background:#6666cd;
+}
+
+.tile p{
+    margin:8px 0 0;
+    font-size:14px;
+}
+
+

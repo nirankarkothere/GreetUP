@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Money Requests</title>
+<style>
+body { font-family: Arial, sans-serif; background:#f0f2f5; display:flex; justify-content:center; align-items:flex-start; padding-top:50px; }
+.container { background:#fff; padding:30px 40px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); width:500px; }
+h2 { text-align:center; margin-bottom:20px; color:#333; }
+table { width:100%; border-collapse: collapse; }
+th, td { border:1px solid #ccc; padding:8px; text-align:center; }
+th { background:#f7f7f7; }
+button { padding:6px 12px; border:none; border-radius:6px; cursor:pointer; margin:2px; }
+.approve { background:green; color:#fff; }
+.reject { background:red; color:#fff; }
+.message { margin-top:10px; text-align:center; font-weight:bold; }
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Pending Money Requests</h2>
+<div class="message" id="message"></div>
+<table>
+<thead>
+<tr><th>From</th><th>Amount</th><th>Date</th><th>Action</th></tr>
+</thead>
+<tbody id="requests_body">
+<tr><td colspan="4">Loading...</td></tr>
+</tbody>
+</table>
+<button onclick="loadRequests()">Refresh</button>
+</div>
+
+<script>
+function loadRequests(){
+    fetch('../php/notification.php')
+    .then(res=>res.json())
+    .then(data=>{
+        const tbody = document.getElementById('requests_body');
+        if(data.length===0){
+            tbody.innerHTML='<tr><td colspan="4">No pending requests</td></tr>';
+            return;
+        }
+        tbody.innerHTML='';
+        data.forEach(req=>{
+            const tr = document.createElement('tr');
+            tr.innerHTML=`
+                <td>${req.sender_name}</td>
+                <td>₹${req.amount}</td>
+                <td>${req.created_at}</td>
+                <td>
+                    <button class="approve" onclick="processRequest(${req.request_id},'approve')">Approve</button>
+                    <button class="reject" onclick="processRequest(${req.request_id},'reject')">Reject</button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+    })
+    .catch(err=>console.error(err));
+}
+
+function processRequest(id,action){
+    const formData = new FormData();
+    formData.append('request_id', id);
+    formData.append('action', action);
+
+    fetch('process_request.php',{method:'POST',body:formData})
+    .then(res=>res.json())
+    .then(data=>{
+        const msg = document.getElementById('message');
+        msg.textContent = data.message;
+        msg.className = data.success ? "message success" : "message error";
+        loadRequests(); // refresh table
+    })
+    .catch(err=>{
+        const msg = document.getElementById('message');
+        msg.textContent = "Error processing request";
+        msg.className = "message error";
+        console.error(err);
+    });
+}
+
+// Load requests automatically on page load
+window.onload = loadRequests;
+</script>
+</body>
+</html>

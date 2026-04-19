@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment Bank – Login</title>
+<link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+<div class="auth-container">
+
+<div class="card" id="authCard">
+    <span class="inner-close" onclick="window.location.href='../usr/index.html'"><i class="fa-solid fa-x"></i></span>
+
+    <!-- LOGIN -->
+    <div class="face front">
+        <h2>Login</h2>
+        <form id="loginForm" method="POST" action="../php/login.php">
+            <input type="text" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" name="login">Login</button>
+        </form>
+        <p><span onclick="flipForgot()" class="link">Forgot password?</span></p>
+        <p>New here? <span onclick="flipSignup()">Create Account</span></p>
+    </div>
+
+    <!-- SIGNUP -->
+    <div class="face back">
+        <h2>Create Account</h2>
+        <form id="signupForm" method="POST" action="../php/signup.php">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" name="signup">Register</button>
+        </form>
+        <p>Account created? <span onclick="flipSignup()">Login Now</span></p>
+    </div>
+
+    <!-- FORGOT -->
+    <div class="face forgot">
+        <h2>Reset Password</h2>
+        <form id="forgotForm" method="POST" action="../php/forgot.php">
+            <input type="number" name="mobile" placeholder="Enter your Registered Mobile number" required>
+            <input type="number" name="otp" placeholder="Enter OTP" required>
+            <button type="submit" name="reset">Send Reset Link</button>
+        </form>
+        <p><span onclick="flipForgot()">Back to Login</span></p>
+    </div>
+</div>
+
+
+
+</div>
+
+<script src="auth.js"></script>
+</body>
+</html>

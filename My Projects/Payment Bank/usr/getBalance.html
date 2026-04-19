@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Check Balance</title>
+<style>
+body { font-family: Arial, sans-serif; background:#f0f2f5; display:flex; justify-content:center; align-items:center; height:100vh; margin:0; }
+.container { background:#fff; padding:30px 40px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1); width:300px; text-align:center; }
+h2 { margin-bottom:20px; color:#333; }
+.balance { font-size:24px; font-weight:bold; margin:20px 0; color:#4CAF50; }
+.pin-input { width:80%; padding:10px; margin:10px 0; border:1px solid #ddd; border-radius:6px; font-size:16px; text-align:center; }
+button { padding:10px 20px; background:#4CAF50; color:#fff; border:none; border-radius:6px; cursor:pointer; font-size:16px; margin:5px; }
+button:hover { background:#45a049; }
+button.secondary { background:#6c757d; }
+button.secondary:hover { background:#5a6268; }
+.message { margin-top:10px; font-weight:bold; color:red; }
+.hidden { display:none; }
+</style>
+</head>
+<body>
+<div class="container">
+    <div id="pinSection">
+        <h2>Enter Transaction PIN</h2>
+        <input type="password" id="pin" class="pin-input" placeholder="4-digit PIN" maxlength="4">
+        <button onclick="checkBalance()">Check Balance</button>
+        <div class="message" id="pinMessage"></div>
+    </div>
+
+    <div id="balanceSection" class="hidden">
+        <h2>Your Balance</h2>
+        <div class="balance" id="balance">--</div>
+        <button class="secondary" onclick="showPinSection()">Back</button>
+        <button onclick="refreshBalance()">Refresh</button>
+        <div class="message" id="balanceMessage"></div>
+    </div>
+</div>
+
+<script>
+let currentPin = '';
+
+function checkBalance() {
+    currentPin = document.getElementById('pin').value;
+    
+    if (!currentPin || currentPin.length !== 4) {
+        document.getElementById('pinMessage').textContent = "Please enter 4-digit PIN";
+        return;
+    }
+
+    fetchBalance(currentPin);
+}
+
+function refreshBalance() {
+    if (currentPin) {
+        fetchBalance(currentPin);
+    } else {
+        showPinSection();
+    }
+}
+
+function fetchBalance(pin) {
+    const formData = new URLSearchParams();
+    formData.append('pin', pin);
+
+    fetch('../php/getBalance.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById('balance').textContent = "₹" + parseFloat(data.balance).toFixed(2);
+            document.getElementById('pinSection').classList.add('hidden');
+            document.getElementById('balanceSection').classList.remove('hidden');
+            document.getElementById('pinMessage').textContent = "";
+            document.getElementById('balanceMessage').textContent = "";
+        } else {
+            document.getElementById('pinMessage').textContent = data.message;
+            document.getElementById('pin').value = "";
+            currentPin = '';
+        }
+    })
+    .catch(err => {
+        document.getElementById('pinMessage').textContent = "Error fetching balance";
+    });
+}
+
+function showPinSection() {
+    document.getElementById('pinSection').classList.remove('hidden');
+    document.getElementById('balanceSection').classList.add('hidden');
+    document.getElementById('pin').value = "";
+    document.getElementById('pinMessage').textContent = "";
+    document.getElementById('balanceMessage').textContent = "";
+    currentPin = '';
+}
+
+// Enter key
+document.getElementById('pin').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') checkBalance();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Transaction</title>
+<style>
+body{font-family:Arial;background:#f2f4f8}
+.box{max-width:400px;margin:60px auto;background:#fff;
+padding:25px;border-radius:12px}
+input,button{width:100%;padding:10px;margin-top:10px}
+button{background:#1d7af3;color:#fff;border:none;border-radius:6px}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h2 id="title">Transaction</h2>
+
+<form id="txnForm">
+    <div id="dynamicFields"></div>
+    <input type="number" name="amount" placeholder="Amount" required>
+    <button type="submit">Pay</button>
+</form>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const type = params.get("type");
+
+const title = document.getElementById("title");
+const fields = document.getElementById("dynamicFields");
+
+switch(type){
+case "mobile":
+    title.innerText = "📱 Mobile Recharge";
+    fields.innerHTML = `<input type="text" placeholder="Mobile Number" required>`;
+    break;
+
+case "electricity":
+    title.innerText = "💡 Electricity Bill";
+    fields.innerHTML = `<input type="text" placeholder="Consumer Number" required>`;
+    break;
+
+case "gas":
+    title.innerText = "🔥 Gas Bill";
+    fields.innerHTML = `<input type="text" placeholder="Customer ID" required>`;
+    break;
+
+case "send":
+    title.innerText = "💸 Send Money";
+    fields.innerHTML = `<input type="text" placeholder="Receiver Bank ID" required>`;
+    break;
+
+case "receive":
+    title.innerText = "📥 Receive Money";
+    fields.innerHTML = `<input type="text" placeholder="Sender Bank ID" required>`;
+    break;
+
+default:
+    title.innerText = "Transaction";
+}
+
+/* 🔐 Redirect to PIN page on Pay */
+document.getElementById("txnForm").onsubmit = function(e){
+    e.preventDefault();
+
+    const amount = document.querySelector("input[type=number]").value;
+    const refInput = document.querySelector("#dynamicFields input");
+    const ref = refInput ? refInput.value : "";
+
+    window.location.href =
+        "pin.php?service=" + type +
+        "&ref=" + encodeURIComponent(ref) +
+        "&amount=" + encodeURIComponent(amount);
+};
+</script>
+
+
+</body>
+</html>

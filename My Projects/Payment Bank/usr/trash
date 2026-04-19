@@ -1,0 +1,229 @@
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#home">Home</a></li>
+            </ul>                
+        </nav>
+
+
+
+        <?php
+session_start();
+require_once 'session.php';
+
+if (!isset($_SESSION['mobile'])) {
+    header("Location: login.php");
+    exit;
+}
+
+$conn = new mysqli("localhost", "root", "", "healthkit");
+
+$mobile = $_SESSION['mobile'];
+
+$sql = "SELECT * FROM users WHERE mobile='$mobile'";
+$res = $conn->query($sql);
+$user = $res->fetch_assoc();
+
+// Handle profile update
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_profile'])) {
+    $full_name = $_POST['full_name'];
+    $gender = $_POST['gender'];
+    $date_of_birth = $_POST['date_of_birth'];
+    $nationality = $_POST['nationality'];
+    $address = $_POST['address'];
+    $education = $_POST['education'];
+    $university = $_POST['university'];
+    $job_title = $_POST['job_title'];
+    $company = $_POST['company'];
+    $experience_years = $_POST['experience_years'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    
+    $update_sql = "UPDATE users SET 
+        full_name = '$full_name', 
+        gender = '$gender', 
+        date_of_birth = '$date_of_birth', 
+        nationality = '$nationality', 
+        address = '$address', 
+        education = '$education', 
+        university = '$university', 
+        job_title = '$job_title', 
+        company = '$company', 
+        experience_years = '$experience_years',
+        email = '$email'";
+    
+    if (!empty($password)) {
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $update_sql .= ", password = '$hashed_password'";
+    }
+    
+    $update_sql .= " WHERE mobile = '$mobile'";
+    
+    if ($conn->query($update_sql)) {
+        // Refresh user data
+        $res = $conn->query($sql);
+        $user = $res->fetch_assoc();
+        $update_success = "Profile updated successfully!";
+    } else {
+        $update_error = "Error updating profile: " . $conn->error;
+    }
+}
+
+// Handle hospital task submission
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_hospital'])) {
+    $hospital_name = $conn->real_escape_string($_POST['hospital_name']);
+    $hospital_phone = $conn->real_escape_string($_POST['hospital_phone']);
+    $operating_hours = $conn->real_escape_string($_POST['operating_hours']);
+    $specialization = $conn->real_escape_string($_POST['specialization']);
+    $other_specialization = $conn->real_escape_string($_POST['other_specialization']);
+    $latitude = floatval($_POST['latitude']);
+    $longitude = floatval($_POST['longitude']);
+    $additional_info = $conn->real_escape_string($_POST['additional_info']);
+    $user_id = $user['id'];
+    
+    // Create hospital_tasks table if not exists
+    $create_table = "CREATE TABLE IF NOT EXISTS hospital_tasks (
+        id INT PRIMARY KEY AUTO_INCREMENT,
+        user_id INT NOT NULL,
+        hospital_name VARCHAR(255) NOT NULL,
+        hospital_phone VARCHAR(20) NOT NULL,
+        operating_hours VARCHAR(50) NOT NULL,
+        specialization VARCHAR(50) NOT NULL,
+        other_specialization VARCHAR(100),
+        latitude DECIMAL(10, 8) NOT NULL,
+        longitude DECIMAL(11, 8) NOT NULL,
+        additional_info TEXT,
+        status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending',
+        submitted_date DATETIME DEFAULT CURRENT_TIMESTAMP
+    )";
+    $conn->query($create_table);
+    
+    $insert_sql = "INSERT INTO hospital_tasks 
+        (user_id, hospital_name, hospital_phone, operating_hours, specialization, 
+         other_specialization, latitude, longitude, additional_info, status)
+        VALUES ('$user_id', '$hospital_name', '$hospital_phone', '$operating_hours', 
+                '$specialization', '$other_specialization', '$latitude', '$longitude', 
+                '$additional_info', 'pending')";
+    
+    if ($conn->query($insert_sql)) {
+        $hospital_success = "Hospital information submitted successfully!";
+    } else {
+        $hospital_error = "Error submitting hospital information: " . $conn->error;
+    }
+}
+
+// Fetch submitted hospital tasks
+$hospital_tasks = [];
+$tasks_sql = "SELECT * FROM hospital_tasks WHERE user_id = '{$user['id']}' ORDER BY submitted_date DESC LIMIT 10";
+$tasks_result = $conn->query($tasks_sql);
+if ($tasks_result) {
+    while ($task = $tasks_result->fetch_assoc()) {
+        $hospital_tasks[] = $task;
+    }
+}
+
+// Format date for display
+function formatDate($date_string) {
+    if (empty($date_string) || $date_string == '0000-00-00') return 'Not specified';
+    $date = new DateTime($date_string);
+    return $date->format('F j, Y');
+}
+
+// Calculate age from date of birth
+function calculateAge($dob) {
+    if (empty($dob) || $dob == '0000-00-00') return 'Unknown';
+    $birthDate = new DateTime($dob);
+    $today = new DateTime();
+    $age = $today->diff($birthDate);
+    return $age->y;
+}
+
+// Get disease data from database
+$diseases = [];
+$disease_sql = "SELECT d.*, 
+    IFNULL(ud.relevant, 0) as user_relevant
+    FROM diseases d
+    LEFT JOIN user_diseases ud ON d.id = ud.disease_id AND ud.user_id = '{$user['id']}'
+    ORDER BY d.date_added DESC
+    LIMIT 10";
+
+// Create diseases table if not exists
+$create_diseases = "CREATE TABLE IF NOT EXISTS diseases (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    symptoms TEXT NOT NULL,
+    solutions TEXT NOT NULL,
+    date_added DATETIME DEFAULT CURRENT_TIMESTAMP
+)";
+$conn->query($create_diseases);
+
+// Create user_diseases table if not exists
+$create_user_diseases = "CREATE TABLE IF NOT EXISTS user_diseases (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    disease_id INT NOT NULL,
+    relevant BOOLEAN DEFAULT FALSE,
+    clicked_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)";
+$conn->query($create_user_diseases);
+
+// Insert sample diseases if table is empty
+$check_diseases = "SELECT COUNT(*) as count FROM diseases";
+$result = $conn->query($check_diseases);
+$row = $result->fetch_assoc();
+if ($row['count'] == 0) {
+    $sample_diseases = [
+        "('Influenza (Flu)', 'Fever, cough, sore throat, runny nose, body aches', 'Rest, hydration, antiviral medication, vaccination')",
+        "('Hypertension', 'Headaches, shortness of breath, nosebleeds', 'Medication, low-sodium diet, regular exercise, stress management')",
+        "('Type 2 Diabetes', 'Increased thirst, frequent urination, fatigue, blurred vision', 'Blood sugar monitoring, healthy diet, regular exercise, medication')",
+        "('Asthma', 'Wheezing, shortness of breath, chest tightness, coughing', 'Inhalers, avoiding triggers, allergy medication')",
+        "('COVID-19', 'Fever, cough, loss of taste/smell, fatigue', 'Isolation, vaccination, antiviral treatment, rest')"
+    ];
+    $insert_samples = "INSERT INTO diseases (name, symptoms, solutions) VALUES " . implode(', ', $sample_diseases);
+    $conn->query($insert_samples);
+}
+
+// Fetch diseases
+$disease_result = $conn->query($disease_sql);
+if ($disease_result) {
+    while ($disease = $disease_result->fetch_assoc()) {
+        $diseases[] = $disease;
+    }
+}
+
+// Get user disease clicks
+$user_relevant_diseases = [];
+$relevant_sql = "SELECT disease_id FROM user_diseases WHERE user_id = '{$user['id']}' AND relevant = 1";
+$relevant_result = $conn->query($relevant_sql);
+if ($relevant_result) {
+    while ($row = $relevant_result->fetch_assoc()) {
+        $user_relevant_diseases[] = $row['disease_id'];
+    }
+}
+
+// Handle disease relevance
+if (isset($_GET['mark_disease'])) {
+    $disease_id = intval($_GET['mark_disease']);
+    $action = $_GET['action'] ?? 'toggle';
+    
+    // Check if already exists
+    $check_sql = "SELECT * FROM user_diseases WHERE user_id = '{$user['id']}' AND disease_id = '$disease_id'";
+    $check_result = $conn->query($check_sql);
+    
+    if ($check_result->num_rows > 0) {
+        // Update existing
+        $update_sql = "UPDATE user_diseases SET relevant = NOT relevant WHERE user_id = '{$user['id']}' AND disease_id = '$disease_id'";
+        $conn->query($update_sql);
+    } else {
+        // Insert new
+        $insert_sql = "INSERT INTO user_diseases (user_id, disease_id, relevant) VALUES ('{$user['id']}', '$disease_id', 1)";
+        $conn->query($insert_sql);
+    }
+    
+    header("Location: profile.php#disease-section");
+    exit();
+}
+?>
